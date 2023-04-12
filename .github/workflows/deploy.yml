@@ -26,7 +26,7 @@ jobs:
           npm ci
       - name: deploy
         run: |
-          mkdir layers && mkdir layers/deps && mkdir layers/deps/nodejs && cp package.* layers/deps/nodejs
+          mkdir layers && mkdir layers/deps && mkdir layers/deps/nodejs && cp package* layers/deps/nodejs
           zip -r9 layers.zip ./layers/*
           aws lambda publish-layer-version --layer-name deps-layer --description "node deps" --zip-file fileb://layers.zip --compatible-runtimes nodejs10.x nodejs12.x nodejs14.x
           npx ncc build src/main.ts
