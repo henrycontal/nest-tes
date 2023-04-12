@@ -13,7 +13,7 @@ functions:
     events:
       - http:
           method: GET
-          path: /
+          path: /default/nest-serverless
       - http:
           method: ANY
           path: '{proxy+}'
