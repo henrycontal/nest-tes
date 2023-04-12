@@ -27,7 +27,6 @@ jobs:
       - name: deploy
         run: |
           npx ncc build src/main.ts
-          cp ./package.json ./dist
-          zip -j deploy.zip ./dist/*
+          zip -j deploy.zip ./dist/* node_modules
           aws lambda update-function-code --function-name=nest-serverless --zip-file=fileb://deploy.zip
 
