@@ -4,6 +4,8 @@ import { Controller, Get } from '@nestjs/common';
 export class UserController {
     @Get()
     getUserInformation() {
-        return {};
+        return {
+            message: 'user path',
+        };
     }
 }
