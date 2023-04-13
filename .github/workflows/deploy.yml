@@ -30,7 +30,6 @@ jobs:
           zip -r9 layers.zip ./layers/*
           aws lambda publish-layer-version --layer-name deps-layer --description "node deps" --zip-file fileb://layers.zip --compatible-runtimes nodejs10.x nodejs12.x nodejs14.x
           npx ncc build src/main.ts
-          cp .env ./dist
           zip -j deploy.zip ./dist/* .env
           aws lambda update-function-code --function-name=nest-serverless --zip-file=fileb://deploy.zip
 
