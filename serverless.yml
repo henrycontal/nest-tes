@@ -15,3 +15,16 @@ functions:
       - http:
           method: GET
           path: /nest-serverless
+      - http:
+          method: GET
+          path: /user
+      - http:
+          method: POST
+          path: /token
+      - http:
+          method: POST
+          path: /token/introspection
+      - http:
+          method: POST
+          path: /token/revocation
+
