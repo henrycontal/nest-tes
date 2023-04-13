@@ -13,6 +13,8 @@ async function bootstrap(): Promise<Handler> {
     const config = new ConfigService();
     app.setGlobalPrefix(config.get('STAGE'));
 
+    console.log(config.get('STAGE'));
+
     const expressApp = app.getHttpAdapter().getInstance();
     return serverlessExpress({ app: expressApp });
 }
