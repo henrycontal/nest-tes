@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "prestart:local": "rm -rdf ./dist",
-    "start:local": "ncc build src/main.ts && serverless offline --noPrependStageInUrl",
+    "start:local": "ncc build src/main.ts && serverless offline",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

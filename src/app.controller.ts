@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller('default/nest-serverless')
+@Controller('nest')
 export class AppController {
     constructor(private readonly appService: AppService) {}
 
