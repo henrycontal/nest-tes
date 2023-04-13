@@ -14,4 +14,4 @@ functions:
     events:
       - http:
           method: GET
-          path: /default/nest-serverless
+          path: /nest-serverless
