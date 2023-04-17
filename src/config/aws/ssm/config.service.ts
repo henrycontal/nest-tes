@@ -13,6 +13,14 @@ export class AwsSSMConfigService {
         return this.config.get<string>('ssm.secretAccessKey');
     }
 
+    public get SSM_ENDPOINT(): string {
+        return this.config.get<string>('ssm.ssmEndpoint');
+    }
+
+    public get SESSION_TOKEN(): string {
+        return process.env.AWS_SESSION_TOKEN;
+    }
+
     public get REGION(): string {
         return this.config.get<string>('ssm.region');
     }
