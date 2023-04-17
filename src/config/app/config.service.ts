@@ -8,4 +8,8 @@ export class AppConfigService {
     public get STAGE(): string {
         return this.config.get<string>('app.stage');
     }
+
+    public get ENV(): string {
+        return this.config.get<string>('app.env');
+    }
 }
