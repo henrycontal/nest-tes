@@ -9,14 +9,10 @@ import { AwsSSMConfigService } from '../../../config/aws/ssm/config.service';
             imports: [AwsSMMConfigModule],
             useFactory: async (config: AwsSSMConfigService) => ({
                 ssmParamStorePath: '/',
+                ssmDecryptParams: true,
                 ssmClientOptions: {
-                    credentials: {
-                        accessKeyId: config.ACCESS_KEY_ID,
-                        secretAccessKey: config.SECRET_ACCESS_KEY,
-                    },
                     region: config.REGION,
                 },
-                ssmDecryptParams: true,
             }),
             inject: [AwsSSMConfigService],
         }),
