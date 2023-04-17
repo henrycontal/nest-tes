@@ -37,3 +37,4 @@ lerna-debug.log*
 *.zip
 layers/*
 .env
+.build

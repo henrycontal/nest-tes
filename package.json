@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "prestart:local": "rm -rdf ./dist",
-    "start:local": "ncc build src/main.ts && serverless offline",
+    "start:local": "ncc build src/main.ts && sls offline",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -22,13 +22,17 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@aws-sdk/client-ssm": "3.312.0",
     "@nestjs/common": "9.0.0",
     "@nestjs/config": "2.3.1",
     "@nestjs/core": "9.4.0",
+    "@nestjs/mongoose": "9.2.2",
     "@nestjs/platform-express": "9.0.0",
     "@vendia/serverless-express": "4.10.1",
     "@vercel/ncc": "^0.36.1",
     "aws-lambda": "1.0.7",
+    "mongoose": "7.0.3",
+    "nestjs-param-store": "1.1.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.2.0",
     "serverless": "3.30.1"

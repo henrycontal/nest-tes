@@ -1,17 +1,23 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TokenController } from './token/token.controller';
-import { UserController } from './user/user.controller';
+import { TokenModule } from './token/token.module';
+import { UserModule } from './user/user.module';
+
+import { AppConfigModule } from './config/app/config.module';
+
+import { AwsSmmProviderModule } from './providers/aws/ssm/provider.module';
+import { MongoDatabaseProviderModule } from './providers/database/mongo/provider.module';
 
 @Module({
     imports: [
-        ConfigModule.forRoot({
-            isGlobal: true,
-        }),
+        AppConfigModule,
+        UserModule,
+        TokenModule,
+        MongoDatabaseProviderModule,
+        AwsSmmProviderModule,
     ],
-    controllers: [AppController, UserController, TokenController],
+    controllers: [AppController],
     providers: [AppService],
 })
 export class AppModule {}
