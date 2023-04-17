@@ -20,7 +20,7 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
                     .replace('{database}', ps.get('MONGO_DATABASE_TEST'));
 
                 return {
-                    uri,
+                    uri: 'mongodb+srv://admin:IGXG69RIrA84cBzK@cluster0.fkxjjli.mongodb.net/nest',
                 };
             },
             inject: [MongoConfigService, PSConfigService],
