@@ -19,6 +19,8 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
                     .replace('{host}', ps.get('MONGO_HOST_TEST'))
                     .replace('{database}', ps.get('MONGO_DATABASE_TEST'));
 
+                console.log(uri);
+
                 return {
                     uri: 'mongodb+srv://admin:IGXG69RIrA84cBzK@cluster0.fkxjjli.mongodb.net/nest',
                 };
