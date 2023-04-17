@@ -10,13 +10,6 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
             useFactory: async (config: MongoConfigService) => {
                 const uri = config.URI;
 
-                // const uri = config.URI.replace(
-                //     '{credentials}',
-                //     ps.get('MONGO_CREDENTIALS_TEST'),
-                // )
-                //     .replace('{host}', ps.get('MONGO_HOST_TEST'))
-                //     .replace('{database}', ps.get('MONGO_DATABASE_TEST'));
-
                 console.log(uri);
 
                 return {
