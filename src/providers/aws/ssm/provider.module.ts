@@ -13,6 +13,7 @@ import { AwsSSMConfigService } from '../../../config/aws/ssm/config.service';
                     credentials: {
                         accessKeyId: config.ACCESS_KEY_ID,
                         secretAccessKey: config.SECRET_ACCESS_KEY,
+                        sessionToken: process.env?.AWS_SESSION_TOKEN,
                     },
                     region: config.REGION,
                 },
