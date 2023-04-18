@@ -11,6 +11,7 @@ async function bootstrap(): Promise<Handler> {
     await app.init();
 
     const appConfig: AppConfigService = app.get(AppConfigService);
+    console.log(appConfig.STAGE);
     app.setGlobalPrefix(appConfig.STAGE);
 
     const expressApp = app.getHttpAdapter().getInstance();
