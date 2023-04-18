@@ -14,10 +14,14 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
             ) => {
                 const uri = config.URI;
 
-                const host = ssm.get('MONGO_HOST_TEST');
-                console.log(host);
+                try {
+                    const host = ssm.get('MONGO_HOST_TEST');
+                    console.log(host);
 
-                console.log(uri);
+                    console.log(uri);
+                } catch (error) {
+                    console.log(JSON.stringify(error));
+                }
 
                 return {
                     uri: 'mongodb+srv://admin:IGXG69RIrA84cBzK@cluster0.fkxjjli.mongodb.net/nest',
