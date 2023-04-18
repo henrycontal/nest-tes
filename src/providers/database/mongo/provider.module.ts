@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { PSConfigService } from 'nestjs-param-store';
 import { MongoConfigModule } from '../../../config/database/mongo/config.module';
 import { MongoConfigService } from '../../../config/database/mongo/config.service';
 
@@ -7,8 +8,14 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
     imports: [
         MongooseModule.forRootAsync({
             imports: [MongoConfigModule],
-            useFactory: async (config: MongoConfigService) => {
+            useFactory: async (
+                config: MongoConfigService,
+                ssm: PSConfigService,
+            ) => {
                 const uri = config.URI;
+
+                const host = ssm.get('MONGO_HOST_TEST');
+                console.log(host);
 
                 console.log(uri);
 
@@ -16,8 +23,9 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
                     uri: 'mongodb+srv://admin:IGXG69RIrA84cBzK@cluster0.fkxjjli.mongodb.net/nest',
                 };
             },
-            inject: [MongoConfigService],
+            inject: [MongoConfigService, PSConfigService],
         }),
     ],
+    providers: [],
 })
 export class MongoDatabaseProviderModule {}
