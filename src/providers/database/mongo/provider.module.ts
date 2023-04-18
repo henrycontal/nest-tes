@@ -12,15 +12,24 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
                 config: MongoConfigService,
                 ssm: PSConfigService,
             ) => {
-                const uri = config.URI;
-
                 const host = ssm.get('MONGO_HOST_TEST');
-                console.log(host);
+                const credentials = ssm.get('MONGO_CREDENTIALS_TEST');
+                const database = ssm.get('MONGO_DATABASE_TEST');
+
+                console.log({
+                    host,
+                    credentials,
+                    database,
+                });
+
+                const uri = config.URI.replace('{credentials}', credentials)
+                    .replace('{host}', host)
+                    .replace('{database}', database);
 
                 console.log(uri);
 
                 return {
-                    uri: 'mongodb+srv://admin:IGXG69RIrA84cBzK@cluster0.fkxjjli.mongodb.net/nest',
+                    uri,
                 };
             },
             inject: [MongoConfigService, PSConfigService],
