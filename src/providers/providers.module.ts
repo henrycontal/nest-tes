@@ -4,7 +4,7 @@ import { AwsSmmProviderModule } from './aws/ssm/provider.module';
 import { MongoDatabaseProviderModule } from './database/mongo/provider.module';
 
 @Module({
-    imports: [AwsSmmProviderModule.register(), MongoDatabaseProviderModule],
-    exports: [AwsSmmProviderModule.register(), MongoDatabaseProviderModule],
+    imports: [AwsSmmProviderModule, MongoDatabaseProviderModule],
+    exports: [AwsSmmProviderModule, MongoDatabaseProviderModule],
 })
 export class ProvidersModule {}
