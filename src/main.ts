@@ -1,17 +1,17 @@
 import { NestFactory } from '@nestjs/core';
 import serverlessExpress from '@vendia/serverless-express';
 import { Callback, Context, Handler } from 'aws-lambda';
-import { AppModule } from './app.module';
+
+import { ApiModule } from './api/api.module';
 import { AppConfigService } from './config/app/config.service';
 
 let server: Handler;
 
 async function bootstrap(): Promise<Handler> {
-    const app = await NestFactory.create(AppModule);
+    const app = await NestFactory.create(ApiModule);
     await app.init();
 
     const appConfig: AppConfigService = app.get(AppConfigService);
-    console.log(appConfig.STAGE);
     app.setGlobalPrefix(appConfig.STAGE);
 
     const expressApp = app.getHttpAdapter().getInstance();

@@ -19,9 +19,6 @@ functions:
     events:
       - http:
           method: GET
-          path: /nest-serverless
-      - http:
-          method: GET
           path: /user
       - http:
           method: POST

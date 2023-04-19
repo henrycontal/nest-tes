@@ -18,7 +18,7 @@ export class AwsSSMConfigService {
     }
 
     public get SESSION_TOKEN(): string {
-        return process.env.AWS_SESSION_TOKEN;
+        return this.config.get<string>('ssm.sessionToken');
     }
 
     public get REGION(): string {
