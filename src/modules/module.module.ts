@@ -24,4 +24,4 @@ const modules = [
     imports: modules,
     exports: modules,
 })
-export class ModelModule {}
+export class ModuleModule {}

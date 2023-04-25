@@ -5,12 +5,11 @@ import { ChannelRepository } from './channel.repository';
 export class ChannelService {
     constructor(private readonly repository: ChannelRepository) {}
 
-    public async getChannel(xChannel: string) {
+    public async validate(xChannel: string) {
         const document = await this.repository.findById(xChannel);
 
         if (!document) {
-            // TODO: THROW ERROR
-            console.log(`[ERROR]: ${xChannel} channel does not exist`);
+            console.log(`[ERROR]: ${xChannel} code is invalid`);
             return null;
         }
 

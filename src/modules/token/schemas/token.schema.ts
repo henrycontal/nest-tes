@@ -8,6 +8,11 @@ export type TokenDocument = mongoose.HydratedDocument<Token>;
 @Schema({
     versionKey: false,
     timestamps: true,
+    toObject: {
+        transform: function (_, ret) {
+            Object.setPrototypeOf(ret, Object.getPrototypeOf(new Token()));
+        },
+    },
 })
 export class Token implements IToken {
     @Prop({
