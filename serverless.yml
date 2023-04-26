@@ -10,18 +10,17 @@ provider:
   region: us-east-2
   timeout: 30
   layers:
-    deps:
-      artifact: layers.zip
+    - arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4
+    
     
 
 package:
+  individually: true
   excludeDevDependencies: true
 
 functions:
   main:
     handler: dist/index.handler
-    layers:
-      - arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4  
     events:
       - http:
           method: GET
