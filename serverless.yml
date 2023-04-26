@@ -15,6 +15,9 @@ provider:
 
 package:
   excludeDevDependencies: true
+  patterns:
+    - 'dist/*'
+    - '!.'
 
 functions:
   main:
