@@ -17,6 +17,21 @@ provider:
 package:
   individually: true
   excludeDevDependencies: true
+  patterns:
+    - '!.github'
+    - '!.vscode'
+    - '!node_modules/**'
+    - '!src/**'
+    - '!test/**'
+    - '!.env.example'
+    - '!.eslintrc.js'
+    - '!.gitignore'
+    - '!.prettierrc'
+    - '!nest-cli.json'
+    - '!README.md'
+    - '!sonar-project.properties'
+    - '!tsconfig.*'
+
 
 functions:
   main:
