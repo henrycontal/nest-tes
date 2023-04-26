@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "name": "Debug AWS Lambda Function",
+            "request": "launch",
+            "program": "${workspaceFolder}/node_modules/.bin/sls",
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "args": ["offline"],
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js",
+            ]
+        }
+    ]
+}
