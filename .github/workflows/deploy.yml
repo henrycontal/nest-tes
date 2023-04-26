@@ -31,6 +31,7 @@ jobs:
       - name: deploy
         run: |
           mkdir -p layers/deps/nodejs && cp package* layers/deps/nodejs
+          zip layers.zip layers/*
           npm run build
           npm run deploy
           
