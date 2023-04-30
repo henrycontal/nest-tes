@@ -9,16 +9,18 @@ provider:
   stage: v2
   region: us-east-2
   timeout: 30
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-       - secretsmanager:GetSecretValue
-      Resource: KEY_ARN
-    - Effect: "Allow"
-      Action:
-       - ssm:GetParameters
-       - ssm:GetParameter
-      Resource: '*'
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - secretsmanager:GetSecretValue
+          Resource: '*'
+        - Effect: "Allow"
+          Action:
+          - ssm:GetParameters
+          - ssm:GetParameter
+          Resource: '*'
   layers:
     - arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4
     
