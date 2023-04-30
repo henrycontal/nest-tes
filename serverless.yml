@@ -14,12 +14,9 @@ provider:
       statements:
         - Effect: "Allow"
           Action:
-            - secretsmanager:GetSecretValue
-          Resource: '*'
-        - Effect: "Allow"
-          Action:
           - ssm:GetParameters
           - ssm:GetParameter
+          - ssm:GetParametersByPath
           Resource: '*'
   layers:
     - arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4
