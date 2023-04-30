@@ -1,17 +1,14 @@
-import { Module } from '@nestjs/common';
-import { LazyModuleLoader } from '@nestjs/core';
+import { Module, forwardRef } from '@nestjs/common';
 
 import { ConfigurationsModule } from '../config/config.module';
 import { ProvidersModule } from '../providers/providers.module';
 
+import { CatModule } from 'src/domain/cat/cat.module';
 import { ApiController } from './api.controller';
-import { ApiService } from './api.service';
 
 @Module({
-    imports: [ConfigurationsModule, ProvidersModule],
+    imports: [ConfigurationsModule, ProvidersModule, forwardRef(() => CatModule)],
     controllers: [ApiController],
-    providers: [ApiService],
+    providers: [],
 })
-export class ApiModule {
-    constructor(private readonly lazyLoader: LazyModuleLoader) {}
-}
+export class ApiModule {}

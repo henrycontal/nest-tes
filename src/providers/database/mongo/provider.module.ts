@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MongoConfigModule } from '../../../config/database/mongo/config.module';
-import { MongoConfigService } from '../../../config/database/mongo/config.service';
+import { MongoConfigModule } from 'src/config/database/mongo/config.module';
+import { MongoConfigService } from 'src/config/database/mongo/config.service';
 
 @Module({
     imports: [
@@ -9,9 +9,6 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
             imports: [MongoConfigModule],
             useFactory: async (config: MongoConfigService) => ({
                 uri: config.URI,
-                connectionFactory: (connection: unknown, name: string) => {
-                    console.log(`name -> ${name}`);
-                },
             }),
             inject: [MongoConfigService],
         }),

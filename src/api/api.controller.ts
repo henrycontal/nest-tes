@@ -1,11 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
-import { ApiService } from './api.service';
+import { Controller, Get, Inject, forwardRef } from '@nestjs/common';
+import { CatService } from 'src/domain/cat/cat.service';
 
 @Controller('cats')
 export class ApiController {
-    constructor(private readonly service: ApiService) {}
+    constructor(
+        @Inject(forwardRef(() => CatService))
+        private readonly service: CatService,
+    ) {}
+
     @Get()
-    public getMichis() {
+    public async getMichis() {
         return this.service.getMichis();
     }
 }
