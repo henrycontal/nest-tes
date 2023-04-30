@@ -1,18 +1,16 @@
 import { Module } from '@nestjs/common';
+import { LazyModuleLoader } from '@nestjs/core';
 
 import { ConfigurationsModule } from '../config/config.module';
-import { ModuleModule } from '../modules/module.module';
 import { ProvidersModule } from '../providers/providers.module';
 
-import { TokenController } from './token/token.controller';
-import { UserController } from './user/user.controller';
-
-import * as fromToken from './token/providers';
-import * as fromUser from './user/providers';
+import { ApiController } from './api.controller';
 
 @Module({
-    imports: [ConfigurationsModule, ProvidersModule, ModuleModule],
-    controllers: [UserController, TokenController],
-    providers: [...fromToken.providers, ...fromUser.providers],
+    imports: [ConfigurationsModule, ProvidersModule],
+    controllers: [ApiController],
+    providers: [],
 })
-export class ApiModule {}
+export class ApiModule {
+    constructor(private readonly lazyLoader: LazyModuleLoader) {}
+}

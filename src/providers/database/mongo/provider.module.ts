@@ -9,6 +9,9 @@ import { MongoConfigService } from '../../../config/database/mongo/config.servic
             imports: [MongoConfigModule],
             useFactory: async (config: MongoConfigService) => ({
                 uri: config.URI,
+                connectionFactory: (connection: unknown, name: string) => {
+                    console.log(`name -> ${name}`);
+                },
             }),
             inject: [MongoConfigService],
         }),

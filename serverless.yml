@@ -37,49 +37,7 @@ functions:
     events:
       - http:
           method: GET
-          path: /user
-          integration: lambda-proxy
-          cors:
-            origin: '*'
-            headers:
-              - Access-Control-Allow-Origin
-              - Authorization
-              - Content-Type
-              - X-Api-Key
-              - X-Amz-Date
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-      - http:
-          method: POST
-          path: /token
-          integration: lambda-proxy
-          cors:
-            origin: '*'
-            headers:
-              - Access-Control-Allow-Origin
-              - Authorization
-              - Content-Type
-              - X-Api-Key
-              - X-Amz-Date
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-      - http:
-          method: POST
-          path: /token/introspection
-          integration: lambda-proxy
-          cors:
-            origin: '*'
-            headers:
-              - Access-Control-Allow-Origin
-              - Authorization
-              - Content-Type
-              - X-Api-Key
-              - X-Amz-Date
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-      - http:
-          method: POST
-          path: /token/revocation
+          path: /cats
           integration: lambda-proxy
           cors:
             origin: '*'
