@@ -5,11 +5,12 @@ import { ConfigurationsModule } from '../config/config.module';
 import { ProvidersModule } from '../providers/providers.module';
 
 import { ApiController } from './api.controller';
+import { ApiService } from './api.service';
 
 @Module({
     imports: [ConfigurationsModule, ProvidersModule],
     controllers: [ApiController],
-    providers: [],
+    providers: [ApiService],
 })
 export class ApiModule {
     constructor(private readonly lazyLoader: LazyModuleLoader) {}
