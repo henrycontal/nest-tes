@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { PSConfigModule } from 'nestjs-param-store';
-import { AwsSMMConfigModule } from 'src/config/aws/ssm/config.module';
-import { AwsSSMConfigService } from 'src/config/aws/ssm/config.service';
+import { AwsSMMConfigModule } from '../../../config/aws/ssm/config.module';
+import { AwsSSMConfigService } from '../../../config/aws/ssm/config.service';
 
 @Module({
     imports: [

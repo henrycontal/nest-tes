@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import serverlessExpress from '@vendia/serverless-express';
 import { Callback, Context, Handler } from 'aws-lambda';
+import { Logger } from 'nestjs-pino';
 
 import { ApiModule } from './api/api.module';
 import { AppConfigService } from './config/app/config.service';
@@ -8,7 +9,11 @@ import { AppConfigService } from './config/app/config.service';
 let server: Handler;
 
 async function bootstrap(): Promise<Handler> {
-    const app = await NestFactory.create(ApiModule);
+    const app = await NestFactory.create(ApiModule, { bufferLogs: true });
+
+    app.useLogger(app.get(Logger));
+    app.flushLogs();
+
     await app.init();
 
     const appConfig: AppConfigService = app.get(AppConfigService);
