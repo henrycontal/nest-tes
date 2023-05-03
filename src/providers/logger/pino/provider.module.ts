@@ -23,7 +23,7 @@ import { LoggerConfigService } from '../../../config/log/config.service';
                                       singleLine: true,
                                   },
                               }
-                            : null,
+                            : undefined,
                 },
             }),
             inject: [LoggerConfigService, AppConfigService],
