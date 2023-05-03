@@ -42,7 +42,7 @@ package:
 
 functions:
   main:
-    handler: dist/main.handler
+    handler: dist/index.handler
     events:
       - http:
           method: GET
