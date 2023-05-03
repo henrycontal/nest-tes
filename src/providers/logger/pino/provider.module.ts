@@ -11,7 +11,7 @@ import { LoggerConfigService } from '../../../config/log/config.service';
             imports: [LoggerConfigModule, AppConfigModule],
             useFactory: async (logConfig: LoggerConfigService, appConfig: AppConfigService) => ({
                 pinoHttp: {
-                    level: logConfig.LEVEL,
+                    level: logConfig.LEVEL || 'info',
                     customProps: () => ({
                         context: 'HTTP',
                     }),
